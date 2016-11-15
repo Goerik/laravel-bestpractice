@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminLaravel;
 
+use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UserAdminLaravelController extends Controller
 {
     private $userRepository;
 

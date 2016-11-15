@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\Repositories\MessageRepository;
+use App\Http\Controllers\Controller;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class UserController extends Controller
 {
-    private $messageRepository;
+    private $userRepository;
 
-    public function __construct(MessageRepository $messageRepository)
+    public function __construct(UserRepository $userRepository)
     {
-        $this->messageRepository = $messageRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -21,9 +22,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return view('message.index',
+        return view('user.index',
             [
-                'messages' => $this->messageRepository->all()
+                'users' => $this->userRepository->all()
             ]);
     }
 

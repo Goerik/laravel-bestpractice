@@ -3,10 +3,10 @@
 namespace Common\Repositories;
 
 
-abstract class Repository
+abstract class Repository implements  ICrudRepository
 {
 
-    abstract protected function model();
+    abstract public function model();
 
     public function all(){
         return $this->model()->all();

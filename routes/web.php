@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 
-Route::resource('users', 'UserController');
+Route::resource('users', 'Frontend\UserController');
 
-Route::resource('messages', 'MessageController');
+Route::resource('messages', 'Frontend\MessageController');
 
 Auth::routes();
 

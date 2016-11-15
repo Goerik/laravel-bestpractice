@@ -8,7 +8,8 @@
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
         "doctrine/dbal": "^2.5",
-        "laravelcollective/html": "5.3.*"
+        "laravelcollective/html": "5.3.*",
+        "twbs/bootstrap": "^3.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -40,11 +41,15 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
+            "php artisan optimize",
+            "mkdir -p public/vendor/bootstrap",
+            "ln -sfr vendor/twbs/bootstrap/dist public/vendor/bootstrap"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "php artisan optimize",
+            "mkdir -p public/vendor/bootstrap",
+            "ln -sfr vendor/twbs/bootstrap/dist public/vendor/bootstrap"
         ]
     },
     "config": {
