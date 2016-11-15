@@ -1,0 +1,6 @@
+[mysqld] 
+character-set-server=utf8
+init-connect='SET NAMES utf8;' 
+
+[mysql]
+default-character-set=utf8 
