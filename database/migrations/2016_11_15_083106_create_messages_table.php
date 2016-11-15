@@ -15,7 +15,7 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('message')->default("")->comment = "Message Text";
+            $table->string('message')->default("")->comment = "Message Text";
             $table->integer('status')->default(0)->comment = "Message Status - 0 - unread, 1 - read" ;
 
 
