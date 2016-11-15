@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     public function country()
     {
-        return $this->hasOne(Country::class);
+        return $this->hasOne(Country::class, 'id', 'country_id');
     }
 
     public function sentMessages()
