@@ -17,6 +17,7 @@ class MessageStoreValidator extends CommonValidator
         return [
             'message' => ['required'],
             'from_user_id' => ['required'],
+            'to_user_id' => ['required'],
         ];
     }
 }

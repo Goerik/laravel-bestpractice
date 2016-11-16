@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Message;
-use App\Models\User;
+
+use App\Models\Message;
 use Common\Repositories\Repository;
 
 

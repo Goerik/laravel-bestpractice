@@ -3,6 +3,7 @@
 namespace Common\Helpers;
 
 use Common\Exceptions\ApiWrongInputException;
+use Illuminate\Http\Request;
 
 class ApiFormatter {
 
@@ -11,48 +12,22 @@ class ApiFormatter {
      * @param $data
      * @return string
      */
-    public function getSuccessResult($data) {
+    public function format($data, $success = true) {
         $result = new \stdClass();
-        $result->success = true;
+        $result->success = $success;
         $result->data = $data;
 
         return json_encode($result, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-
     }
-
-
-    /**
-     * Prepare answer with error message
-     * @param $errorText
-     * @param $errorCode
-     * @throws ApiWrongInputException
-     */
-    public function throwWrongInputException($errorText, $errorCode) {
-        $exception = new ApiWrongInputException($errorText, $errorCode);
-        throw $exception;
-    }
-
 
     /**
      * Parse JSON and check required params
-     * @param $plainData
-     * @param array $validateKeys
+     * @param Request $request
      * @return mixed
-     * @throws ApiWrongInputException
      */
-    public function decodeJson($plainData, array $validateKeys = []) {
-        $data = json_decode($plainData, true);
-        if (!is_array($data)) {
-            throw new ApiWrongInputException("data is not array");
-        }
-
-        foreach ($validateKeys as $key) {
-            if (!isset($data[$key])) {
-                $this->throwWrongInputException("POST param data must be array with keys " . implode(", ", $validateKeys), 1000);
-            }
-        }
+    public function parse(Request $request) {
+        $data = json_decode($request->get("data"), true);
         return $data;
-
     }
 
 }
