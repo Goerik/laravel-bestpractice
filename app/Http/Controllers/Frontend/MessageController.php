@@ -7,6 +7,7 @@ use App\Factories\MessageValidatorsFactory;
 use App\Http\Controllers\Controller;
 use Common\Controllers\ICrudController;
 use Common\Controllers\Traits\CommonCrud;
+use Common\Services\ICrudService;
 
 class MessageController extends Controller implements ICrudController
 {
@@ -30,9 +31,9 @@ class MessageController extends Controller implements ICrudController
         return $this->messageValidatorsFactory;
     }
 
-    public function __construct(CrudFactory $crudFactory, MessageValidatorsFactory $messageValidatorsFactory)
+    public function __construct(ICrudService $crudService, MessageValidatorsFactory $messageValidatorsFactory)
     {
-        $this->crudService = $crudFactory->getMessageCrudService();
+        $this->crudService = $crudService;
         $this->messageValidatorsFactory = $messageValidatorsFactory;
     }
 

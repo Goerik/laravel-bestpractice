@@ -119,7 +119,8 @@ class MessagesApiTest extends TestCase
 
         ]);
 
-        $this->call('PUT', route("messages-api.store", $this->messageId), $params);
+        $this->call('POST', route("messages-api.store", $this->messageId), $params);
+
         $this->assertResponseStatus(200);
 
         $result = json_decode($this->response->getContent());

@@ -180,6 +180,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        App\Providers\CoreServiceProvider::class,
+
     ],
 
     /*

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Common\Controllers\ICrudController;
 use Common\Controllers\Traits\JSONCrud;
 use Common\Helpers\ApiFormatter;
+use Common\Services\ICrudService;
 
 class MessageJSONController extends Controller implements ICrudController
 {
@@ -36,12 +37,11 @@ class MessageJSONController extends Controller implements ICrudController
         return new ApiFormatter();
     }
 
-    public function __construct(CrudFactory $crudFactory, MessageValidatorsFactory $messageValidatorsFactory)
+    public function __construct(ICrudService $crudService, MessageValidatorsFactory $messageValidatorsFactory)
     {
-        $this->crudService = $crudFactory->getMessageCrudService();
+        $this->crudService = $crudService;
         $this->messageValidatorsFactory = $messageValidatorsFactory;
     }
-
 
 }
 

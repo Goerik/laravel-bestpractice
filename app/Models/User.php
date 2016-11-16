@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Country;
-use App\Message;
+use App\Models\Message;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;

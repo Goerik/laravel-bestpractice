@@ -4,7 +4,7 @@ namespace Common\Services;
 
 use Common\Repositories\ICrudRepository;
 
-class CrudService
+class CrudService implements ICrudService
 {
 
     private $repository;
